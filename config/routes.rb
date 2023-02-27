@@ -8,7 +8,8 @@ Rails.application.routes.draw do
   # get "lists/new", to: "lists#new", as: :new_lists
   # post "lists", to: "lists#create"
   # get "lists/:id", to: "lists#show", as: :list
-  resources :lists, only: [:create, :index, :new, :show] do
+  resources :lists, only: [:create, :index, :new, :show, :destroy] do
     resources :bookmarks, only: [:new, :create]
   end
+  resources :bookmarks, only: [:destroy]
 end

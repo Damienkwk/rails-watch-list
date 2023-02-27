@@ -15,6 +15,11 @@
     <% @lists.each do |list| %>
       <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path list.photo.key, height: 300, crop: :fill %>')">
         <%= link_to list.name, list_path(list) %>
+        <%= link_to "X",
+          list_path(list),
+          class: 'close',
+          data: {turbo_method: :delete, turbo_confirm: "Are you sure?"}
+        %>
       </div>
     <% end %>
   </div>
